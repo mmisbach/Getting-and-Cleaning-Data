@@ -31,7 +31,7 @@ data$Activity<-factor(data$Activity)
 activities<-read.table('activity_labels.txt')
 levels(data$Activity)<-activities$V2
 
-#find means by subject and activity
+#find mean of variables by subject and activity
 melted<-melt(data,id=c("Activity","Subject"),measure.vars=names)
-data2<-dcast(melted,Subject + Activity ~ variable,mean)
+dataSummary<-dcast(melted,Subject + Activity ~ variable,mean)
 
